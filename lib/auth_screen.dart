@@ -94,6 +94,26 @@ class _AuthState extends State<Auth> {
                       const SizedBox(
                         height: 20,
                       ),
+                      TextFormField(
+                        controller: password,
+                        decoration: const InputDecoration(
+                          hintText: 'Ваш пароль',
+                          labelText: 'Пароль',
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Введите пароль';
+                          }
+                          if (value.length < 8) {
+                            return 'Пароль должен содержать не менее 8 символов';
+                          }
+                          if (value.length > 16) {
+                            return 'Пароль должен содержать не более 16 символов';
+                          }
+
+                          return null;
+                        },
+                      ),
                     ],
                   ),
                 ),
