@@ -95,6 +95,7 @@ class _AuthState extends State<Auth> {
                         height: 20,
                       ),
                       TextFormField(
+                        obscureText: true,
                         controller: password,
                         decoration: const InputDecoration(
                           hintText: 'Ваш пароль',
