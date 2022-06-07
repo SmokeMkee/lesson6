@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'generated/l10n.dart';
 import 'models/user.dart';
 
 class Auth extends StatefulWidget {
@@ -24,15 +25,16 @@ class _AuthState extends State<Auth> {
     } else {
       showDialog(
         context: context,
+
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text(
-              "Попробуйте сново",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            title:  Text(
+              S.of(context).tryAgain,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
             actions: <Widget>[
               ElevatedButton(
-                child: const Text("Закрыть"),
+                child:Text(S.of(context).close),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -51,7 +53,7 @@ class _AuthState extends State<Auth> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Авторизация'),
+          title: Text(S.of(context).auth),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
@@ -66,26 +68,26 @@ class _AuthState extends State<Auth> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Введите логин и пароль',
-                        style: TextStyle(
+                      Text(
+                        S.of(context).inputLoginAndPassword,
+                        style: const TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 20),
                       ),
                       TextFormField(
                         controller: login,
-                        decoration: const InputDecoration(
-                          hintText: 'Ваш логин',
-                          labelText: 'Login',
+                        decoration:  InputDecoration(
+                          hintText: S.of(context).login,
+                          labelText: S.of(context).login,
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Введите логин';
+                            return S.of(context).inputErrorCheckLogin;
                           }
                           if (value.length < 3) {
-                            return 'Логин должен содержать не менее 3 символов';
+                            return S.of(context).inputErrorLoginIsShort;
                           }
                           if (value.length > 8) {
-                            return 'Логин должен содержать не более 8 символов';
+                            return S.of(context).inputErrorLoginIsLong;
                           }
 
                           return null;
@@ -97,19 +99,19 @@ class _AuthState extends State<Auth> {
                       TextFormField(
                         obscureText: true,
                         controller: password,
-                        decoration: const InputDecoration(
-                          hintText: 'Ваш пароль',
-                          labelText: 'Пароль',
+                        decoration:  InputDecoration(
+                          hintText: S.of(context).password,
+                          labelText: S.of(context).password,
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Введите пароль';
+                            return S.of(context).password;
                           }
                           if (value.length < 8) {
-                            return 'Пароль должен содержать не менее 8 символов';
+                            return S.of(context).inputErrorPasswordIsShort;
                           }
                           if (value.length > 16) {
-                            return 'Пароль должен содержать не более 16 символов';
+                            return S.of(context).inputErrorPasswordIsLong;
                           }
 
                           return null;
@@ -127,7 +129,7 @@ class _AuthState extends State<Auth> {
                             pressButton(login.text, password.text);
                           }
                         },
-                        child: const Text('Submit'),
+                        child: Text(S.of(context).signIn),
                       ),
                     ),
                   ],
