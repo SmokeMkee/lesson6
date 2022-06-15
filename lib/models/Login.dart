@@ -1,9 +1,10 @@
-class User{
+class Login{
   String login;
   String password;
 
-  User({
+
+  Login({
     required this.login,
-    required this.password
+    required this.password,
 });
 }
