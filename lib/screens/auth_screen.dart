@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'generated/l10n.dart';
-import 'models/Login.dart';
+import '../generated/l10n.dart';
+import '../models/Login.dart';
 
 class Auth extends StatefulWidget {
   const Auth({Key? key}) : super(key: key);

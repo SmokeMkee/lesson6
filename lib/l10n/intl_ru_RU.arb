@@ -18,5 +18,11 @@
   "russian": "Русский",
   "homePage" : "Домашняя страница",
   "persons" : "Персонажи",
-  "settings": "Настройки"
+  "settings": "Настройки",
+  "searchPerson" : "Найти персонажа",
+  "statusAlive" : "Живой",
+  "statusDead" : "Мертв",
+  "genderMan" : "Человек, Мужской",
+  "genderGirl" : "Человек, Женский",
+  "countPersons" : "Всего персонажей: "
 }

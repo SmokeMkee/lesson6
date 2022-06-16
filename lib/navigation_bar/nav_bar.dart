@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lesson3/constants/app_assets.dart';
 import 'package:lesson3/generated/l10n.dart';
-import 'package:lesson3/person_screen/person_screen.dart';
 
-import '../home_screen.dart';
+import '../screens/home_screen.dart';
+import '../screens/person_screen.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -22,17 +22,16 @@ class _NavBarState extends State<NavBar> {
     });
   }
 
+  static const List<Widget> _widgetOptions = <Widget>[
+    PersonScreen(),
+    MyHomePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: IndexedStack(
-          index: _selectedPage,
-          children: [
-            const PersonScreen(),
-            MyHomePage(),
-          ],
-        ),
+        child: _widgetOptions.elementAt(_selectedPage),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedPage,

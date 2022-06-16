@@ -5,6 +5,8 @@ import 'package:lesson3/constants/app_colors.dart';
 import 'package:lesson3/constants/app_styles.dart';
 import 'package:lesson3/models/Accounts.dart';
 
+import '../generated/l10n.dart';
+
 enum ViewType { grid, list }
 
 class PersonScreen extends StatefulWidget {
@@ -164,7 +166,7 @@ class _PersonScreenState extends State<PersonScreen> {
                 decoration: InputDecoration(
                   fillColor: AppColors.searchTextFieldColor,
                   filled: true,
-                  hintText: 'Найти персонажа',
+                  hintText: S.of(context).searchPerson,
                   prefixIcon: const Icon(
                     Icons.search,
                     color: AppColors.iconColor,
@@ -200,7 +202,7 @@ class _PersonScreenState extends State<PersonScreen> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Всего персонажей:' + itemList.length.toString(),
+                      S.of(context).countPersons + itemList.length.toString(),
                       style: AppStyles.s210w500,
                     ),
                   ),
@@ -244,21 +246,28 @@ class _PersonScreenState extends State<PersonScreen> {
                                 ),
                                 itemList[index].status.contains('Живой')
                                     ? Text(
-                                        itemList[index].status.toUpperCase(),
+                                        S.of(context).statusAlive.toUpperCase(),
                                         style: AppStyles.s10w500,
                                       )
                                     : Text(
-                                        itemList[index].status.toUpperCase(),
+                                        S.of(context).statusDead.toUpperCase(),
                                         style: AppStyles.s10w500Dead,
                                       ),
                                 Text(
                                   itemList[index].fullName,
                                   style: AppStyles.s16w500,
                                 ),
-                                Text(
-                                  itemList[index].gender,
-                                  style: AppStyles.s12w400,
-                                ),
+                                itemList[index]
+                                        .gender
+                                        .contains('Человек, Мужской')
+                                    ? Text(
+                                        S.of(context).genderMan,
+                                        style: AppStyles.s12w400,
+                                      )
+                                    : Text(
+                                        S.of(context).genderGirl,
+                                        style: AppStyles.s12w400,
+                                      ),
                               ],
                             )
                           : Row(
@@ -277,14 +286,16 @@ class _PersonScreenState extends State<PersonScreen> {
                                   children: [
                                     itemList[index].status.contains('Живой')
                                         ? Text(
-                                            itemList[index]
-                                                .status
+                                            S
+                                                .of(context)
+                                                .statusAlive
                                                 .toUpperCase(),
                                             style: AppStyles.s10w500,
                                           )
                                         : Text(
-                                            itemList[index]
-                                                .status
+                                            S
+                                                .of(context)
+                                                .statusDead
                                                 .toUpperCase(),
                                             style: AppStyles.s10w500Dead,
                                           ),
@@ -292,10 +303,17 @@ class _PersonScreenState extends State<PersonScreen> {
                                       itemList[index].fullName,
                                       style: AppStyles.s16w500,
                                     ),
-                                    Text(
-                                      itemList[index].gender,
-                                      style: AppStyles.s12w400,
-                                    )
+                                    itemList[index]
+                                            .gender
+                                            .contains('Человек, Мужской')
+                                        ? Text(
+                                            S.of(context).genderMan,
+                                            style: AppStyles.s12w400,
+                                          )
+                                        : Text(
+                                            S.of(context).genderGirl,
+                                            style: AppStyles.s12w400,
+                                          ),
                                   ],
                                 ),
                               ],
