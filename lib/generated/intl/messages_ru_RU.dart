@@ -53,7 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "russian": MessageLookupByLibrary.simpleMessage("Русский"),
         "searchPerson": MessageLookupByLibrary.simpleMessage("Найти персонажа"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
-        "signIn": MessageLookupByLibrary.simpleMessage("Вход"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Войти"),
         "statusAlive": MessageLookupByLibrary.simpleMessage("Живой"),
         "statusDead": MessageLookupByLibrary.simpleMessage("Мертв"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Попробуйте снова")
