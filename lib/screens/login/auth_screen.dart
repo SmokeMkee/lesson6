@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:lesson3/constants/app_assets.dart';
-import 'package:lesson3/screens/login/widgets/button.dart';
+import 'package:lesson3/constants/app_colors.dart';
+import 'package:lesson3/constants/app_styles.dart';
 import 'package:lesson3/screens/login/widgets/login_text_field.dart';
 import 'package:lesson3/screens/login/widgets/password_text_field.dart';
 
@@ -17,6 +18,7 @@ class Auth extends StatefulWidget {
 
 class _AuthState extends State<Auth> {
   final _formKey = GlobalKey<FormState>();
+
 
   final List<Login> _users = [Login(login: 'qwerty', password: '123456ab')];
 
@@ -56,55 +58,107 @@ class _AuthState extends State<Auth> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Image.asset(AppAssets.images.logo),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('ds'),
-                      LoginTextField(),
-                      SizedBox(height: 10.0),
-                      Text('ds'),
-                      PasswordTextFieldInput(),
-                    ],
-                  ),
-                  const SizedBox(height: 24.0),
-                  Row(
-                    children: const [
-                      Expanded(child: Button()
-                          // ElevatedButton(
-                          //   onPressed: () {
-                          //     if (_formKey.currentState!.validate()) {
-                          //       pressButton(login.text, password.text);
-                          //     }
-                          //   },
-                          //   child: Text(S.of(context).signIn),
-                          // ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: Image.asset(AppAssets.images.logo),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          S.of(context).login,
+                          style: AppStyles.s14w400.copyWith(
+                            color: AppColors.loginAndPasswordTextColor,
+                            height: 2,
                           ),
-                    ],
-                  ),
-                  const SizedBox(height: 10.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('У вас еще нет аккаунта?'),
-                      Text('Создать ')
-                    ],
-                  )
-                ],
+                        ),
+                        LoginTextField(
+                          controller: login,
+
+                        ),
+                        const SizedBox(height: 10.0),
+                        Text(
+                          S.of(context).password,
+                          style: AppStyles.s14w400.copyWith(
+                            color: AppColors.loginAndPasswordTextColor,
+                            height: 2,
+                          ),
+                        ),
+                        PasswordTextFieldInput(
+                          controller: password,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+
+                              if (_formKey.currentState!.validate()) {
+                                FocusScope.of(context).unfocus();
+                                pressButton(login.text, password.text);
+                              }
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: Text(
+                                S.of(context).signIn,
+                                style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white,
+                                    letterSpacing: 1.5),
+                              ),
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                const Color.fromRGBO(34, 162, 189, 1),
+                              ),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    side: BorderSide.none),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'У вас еще нет аккаунта?',
+                          style: AppStyles.s14w400,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'Создать ',
+                          style: AppStyles.s14w400
+                              .copyWith(color: AppColors.createNewAccount),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

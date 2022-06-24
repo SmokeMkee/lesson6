@@ -1,5 +1,12 @@
 import 'dart:ui';
 class AppColors{
+  //auth screen
+  static const loginAndPasswordTextColor = Color.fromRGBO(10, 27, 40, 1);
+  static const hintTextLoginAndPassword = Color.fromRGBO(91, 105, 117, 1);
+  static const dontHaveAccount = Color.fromRGBO(91, 105, 117, 1);
+  static const createNewAccount = Color.fromRGBO(67, 208, 73, 1);
+
+
   static const searchTextFieldColor = Color.fromRGBO(242, 242, 242, 1);
   static const iconColor = Color.fromRGBO(91, 105, 117, 1);
   static const searchTextFieldTextColor = Color.fromRGBO(189,189,189, 1);

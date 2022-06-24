@@ -4,12 +4,20 @@ import 'package:flutter_svg/svg.dart';
 import '../../../constants/app_assets.dart';
 import '../../../generated/l10n.dart';
 
-class PasswordTextFieldInput extends StatelessWidget {
-  const PasswordTextFieldInput({Key? key}) : super(key: key);
+class PasswordTextFieldInput extends StatefulWidget {
+  const PasswordTextFieldInput({Key? key, required this.controller,}) : super(key: key);
+  final TextEditingController controller;
 
+  @override
+  State<PasswordTextFieldInput> createState() => _PasswordTextFieldInputState();
+}
+
+class _PasswordTextFieldInputState extends State<PasswordTextFieldInput> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller:widget.controller,
+      obscureText: true,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),

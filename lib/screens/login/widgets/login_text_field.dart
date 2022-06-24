@@ -4,12 +4,20 @@ import 'package:lesson3/constants/app_assets.dart';
 
 import '../../../generated/l10n.dart';
 
-class LoginTextField extends StatelessWidget {
-  const LoginTextField({Key? key}) : super(key: key);
+class LoginTextField extends StatefulWidget {
+  const LoginTextField( {Key? key,  required this.controller}) : super(key: key);
+  final TextEditingController controller;
+
+  @override
+  State<LoginTextField> createState() => _LoginTextFieldState();
+}
+
+class _LoginTextFieldState extends State<LoginTextField> {
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -40,6 +48,8 @@ class LoginTextField extends StatelessWidget {
         }
 
         return null;
+      },
+      onTap: (){
       },
     );
   }
