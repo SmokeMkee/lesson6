@@ -5,7 +5,7 @@ import 'package:lesson3/constants/app_colors.dart';
 import 'package:lesson3/constants/app_styles.dart';
 import 'package:lesson3/models/Accounts.dart';
 
-import '../generated/l10n.dart';
+import '../../generated/l10n.dart';
 
 enum ViewType { grid, list }
 
@@ -17,138 +17,6 @@ class PersonScreen extends StatefulWidget {
 }
 
 class _PersonScreenState extends State<PersonScreen> {
-  List<Accounts> itemList = getImageDataList();
-
-  static List<Accounts> getImageDataList() {
-    return [
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Мертвый',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-      Accounts(
-          gender: 'Человек, Мужской',
-          status: 'Живой',
-          path: AppAssets.images.noAvatar,
-          fullName: 'Рик Cанчез'),
-    ];
-  }
-
   int _crossAxisCount = 1;
   double _aspectRatio = 4;
   ViewType _viewType = ViewType.list;
@@ -158,7 +26,7 @@ class _PersonScreenState extends State<PersonScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -194,9 +62,6 @@ class _PersonScreenState extends State<PersonScreen> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
               ),
               Row(
                 children: [
@@ -328,4 +193,132 @@ class _PersonScreenState extends State<PersonScreen> {
       ),
     );
   }
+
+  List<Accounts> itemList = [
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Мертвый',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+    Accounts(
+        gender: 'Человек, Мужской',
+        status: 'Живой',
+        path: AppAssets.images.noAvatar,
+        fullName: 'Рик Cанчез'),
+  ];
 }

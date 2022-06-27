@@ -24,5 +24,7 @@
   "statusDead" : "Мертв",
   "genderMan" : "Человек, Мужской",
   "genderGirl" : "Человек, Женский",
-  "countPersons" : "Всего персонажей: "
+  "countPersons" : "Всего персонажей: ",
+  "error" : "Ошибка",
+  "wrongLoginAndPassword" : "Введен  неверные логин или пароль"
 }

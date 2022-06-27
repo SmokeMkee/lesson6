@@ -4,7 +4,7 @@ import 'package:lesson3/constants/app_assets.dart';
 import 'package:lesson3/generated/l10n.dart';
 
 import '../screens/home_screen.dart';
-import '../screens/person_screen.dart';
+import '../screens/person_screen/person_screen.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -37,8 +37,8 @@ class _NavBarState extends State<NavBar> {
         currentIndex: _selectedPage,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle_outlined,
+            icon: SvgPicture.asset(
+              AppAssets.svg.personsIcon,
               color: _selectedPage == 0
                   ? const Color.fromRGBO(68, 167, 184, 1)
                   : const Color.fromRGBO(144, 153, 170, 1),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:lesson3/constants/app_assets.dart';
 import 'package:lesson3/constants/app_colors.dart';
@@ -19,7 +18,6 @@ class Auth extends StatefulWidget {
 class _AuthState extends State<Auth> {
   final _formKey = GlobalKey<FormState>();
 
-
   final List<Login> _users = [Login(login: 'qwerty', password: '123456ab')];
 
   void pressButton(String login, String password) {
@@ -34,16 +32,42 @@ class _AuthState extends State<Auth> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(
-              S.of(context).tryAgain,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            title: const Text(
+             "Ошибка",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+            content: const Text(
+              "Введен  неверные логин или пароль",
             ),
             actions: <Widget>[
-              ElevatedButton(
-                child: Text(S.of(context).close),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.white,
+                        ),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                            side: const BorderSide(
+                                color: Color.fromRGBO(34, 162, 189, 1)),
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        S.of(context).close,
+                        style: AppStyles.s16w500
+                            .copyWith(color: const Color.fromRGBO(34, 162, 189, 1)),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           );
@@ -82,7 +106,6 @@ class _AuthState extends State<Auth> {
                         ),
                         LoginTextField(
                           controller: login,
-
                         ),
                         const SizedBox(height: 10.0),
                         Text(
@@ -103,7 +126,6 @@ class _AuthState extends State<Auth> {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () {
-
                               if (_formKey.currentState!.validate()) {
                                 FocusScope.of(context).unfocus();
                                 pressButton(login.text, password.text);
